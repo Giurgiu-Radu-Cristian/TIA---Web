@@ -1,0 +1,121 @@
+/* Stiluri generale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Containerul principal */
+.container {
+    background-color: #fff;
+    width: 400px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.intro-text {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Stiluri pentru formular */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.signup-form label {
+    text-align: left;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="password"],
+.signup-form select,
+.signup-form input[type="file"],
+.signup-form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.signup-form input[type="text"]:focus,
+.signup-form input[type="password"]:focus,
+.signup-form select:focus,
+.signup-form input[type="file"]:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+/* Stil pentru buton */
+.signup-form button {
+    background-color: #6c63ff;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-form button:hover {
+    background-color: #5950e8;
+}
+
+/* Stiluri pentru mesaje */
+.error-message {
+    color: #ff4d4d;
+    font-size: 12px;
+}
+
+.success-message {
+    color: #4CAF50;
+    font-size: 12px;
+}
+.hidden {
+    display: none;
+}
+
+/* Containerele imaginii și mesajului */
+.image-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#profile-image {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#image-message {
+    color: #4CAF50;
+    font-size: 14px;
+    font-weight: bold;
+}

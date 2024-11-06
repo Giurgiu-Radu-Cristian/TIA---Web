@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Înscriere în Clubul de Lectură</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Webflix</h1>
+        <p class="intro-text">Bun venit! Alătură-te Webflix azi.</p>
+
+        <form  class="signup-form">
+            <label for="username">Nume utilizator:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+
+            <label for="password">Parolă:</label>
+            <input type="password" id="password" name="password" required onblur="validatePassword()">
+            <span id="password-message" class="error-message"></span>
+            <br>
+
+            <label for="profile-picture">Încărcați o imagine de profil:</label>
+            <input type="file" id="profile-picture" name="profile-picture" accept="image/*" onchange="previewImage()">
+            
+            <div id="image-container" class="image-container">
+                <img id="profile-image" src="" alt="Imagine de profil" class="hidden">
+                <p id="image-message" class="hidden">Arăţi ţiplă!</p>
+            </div>
+
+
+            <label for="captcha">Cât fac 3 + 5? (pentru a verifica că ești om)</label>
+            <input type="text" id="captcha" name="captcha" required>
+            <span id="captcha-message" class="error-message"></span>
+            <br>
+
+           
+
+            <button type="submit">Înscriere</button>
+        </form>
+    </div>
+
+    <script>
+        function validatePassword() {
+            const password = document.getElementById("password").value;
+            const passwordMessage = document.getElementById("password-message");
+
+            if (password.length < 6) {
+                passwordMessage.textContent = "Parola trebuie să conțină cel puțin 6 caractere.";
+            } else {
+                passwordMessage.textContent = "";
+            }
+        }
+
+        function validateCaptcha() {
+            const captcha = document.getElementById("captcha").value;
+            const captchaMessage = document.getElementById("captcha-message");
+
+            if (captcha !== "8") {
+                captchaMessage.textContent = "Răspuns incorect! Te rugăm să răspunzi corect la întrebare.";
+                return false;
+            } else {
+                captchaMessage.textContent = "";
+                return true;
+            }
+        }
+
+        function previewImage() {
+            const file = document.getElementById('profile-picture').files[0];
+            const imageContainer = document.getElementById('image-container');
+            const profileImage = document.getElementById('profile-image');
+            const imageMessage = document.getElementById('image-message');
+            
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    profileImage.src = e.target.result; 
+                    profileImage.classList.remove('hidden');
+                    imageMessage.classList.remove('hidden'); 
+                };
+                
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
